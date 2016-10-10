@@ -75,7 +75,7 @@ sensor.then(function(tag) {
 
 sensor.then(function(tag) {
   tag.on("accelerometerChange", function(x,y,z) {
-    log("x: " + x + "    y: " + "    z: " + z);
+    log("x: " + x + "    y: " + y + "    z: " + z);
   });
 });
 
