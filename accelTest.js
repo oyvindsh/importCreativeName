@@ -65,7 +65,7 @@ var handleKaffe = function () {
           setTimeout(function () {
             run_cmd ('python', ["tweeter.py", "Nå er kaffen klar! #fuii #importCreativeName", "kaffe.jpg"], function () {log("oida");});
           }, 500000);
-    });
+    }});
   }, 300000);
 };
 
