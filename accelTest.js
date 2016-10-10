@@ -47,9 +47,15 @@ var handleKaffe = function () {
   setTimeout(function () {
     timeout = false;
   }, 50000);
-  run_cmd ('python', ["tweeter.py", "Test 42", "image.jpg"], function functionName() {
-    log("oida");
+
+  run_cmd('fswebcam', ["-r", "1280x720", "image.jpg"], function () {
+    log("tok bilde");
   });
+  setTimeout(function () {
+    run_cmd ('python', ["tweeter.py", "Test 42", "image.jpg"], function () {
+      log("oida");
+    });
+  }, 5000);
 };
 
 function run_cmd(cmd, args, callBack ) {
