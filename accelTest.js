@@ -41,6 +41,19 @@ sensor.then(function(tag) {
 
 var kaffeSkruddPaa = false;
 
+function kaffe() {
+  run_cmd('wallplug_power.sh',[], function () {
+    //
+  });
+  setTimeout(function () {
+    var obj = JSON.parse(fs.readFileSync('wallplug_power.json','utf8'));
+    if (obj.data.metrics.level > kaffeLevel) {
+      kaffeSkruddPaa = true;
+    }
+  }, 500);
+}
+
+
 var handleKaffe = function () {
   kaffeSkruddPaa = false;
   if (timeout) {
@@ -55,7 +68,7 @@ var handleKaffe = function () {
     log("tok bilde");
   });
   setTimeout(function () {
-    kaffeSkruddPaa();
+    kaffe();
   }, 15000);
   setTimeout(function () {
       if (!kaffeSkruddPaa) {
@@ -68,18 +81,6 @@ var handleKaffe = function () {
     }
   }, 17000);
 };
-
-function kaffeSkruddPaa() {
-  run_cmd('wallplug_power.sh',[], function () {
-    //
-  });
-  setTimeout(function () {
-    var obj = JSON.parse(fs.readFileSync('wallplug_power.json','utf8'));
-    if (obj.data.metrics.level > kaffeLevel) {
-      kaffeSkruddPaa = true;
-    }
-  }, 500);
-}
 
 function run_cmd(cmd, args, callBack ) {
     var spawn = require('child_process').spawn;
