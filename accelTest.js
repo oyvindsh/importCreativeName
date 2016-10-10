@@ -26,13 +26,37 @@ var sensor = connected.then(function(tag) {
 
 sensor.then(function(tag) {
   tag.on("accelerometerChange", function(x,y,z) {
-    log("x: " + x + "    y: " + y + "    z: " + z);
 
     if (x < xTresh) {
       // vi heller siste rest av kaffe!
       log("Naa heller vi kaffe!!");
-
+      handleKaffe();
 
     }
   });
 });
+
+var lastHelling = 0;
+var timeout = false;
+
+var handleKaffe = function () {
+  if (timeout) {
+    return;
+  }
+  timeout = true;
+  setTimeout(function () {
+    timeout = false;
+  }, 50000);
+  run_cmd ('python', ["tweeter.py", "Test 42", "image.jpg"], function functionName() {
+    log("oida");
+  });
+};
+
+function run_cmd(cmd, args, callBack ) {
+    var spawn = require('child_process').spawn;
+    var child = spawn(cmd, args);
+    var resp = "";
+
+    child.stdout.on('data', function (buffer) {});
+    child.stdout.on('end', function() {});
+} // ()
