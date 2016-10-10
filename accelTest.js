@@ -26,10 +26,11 @@ var sensor = connected.then(function(tag) {
 
 sensor.then(function(tag) {
   tag.on("accelerometerChange", function(x,y,z) {
+    log("x: " + x + "    y: " + y + "    z: " + z);
+
     if (x < xTresh && z > zTresh) {
       // vi heller siste rest av kaffe!
       log("Naa heller vi kaffe!!");
-      log("x: " + x + "    y: " + y + "    z: " + z);
 
 
     }
