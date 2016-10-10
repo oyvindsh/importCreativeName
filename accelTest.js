@@ -59,6 +59,11 @@ var handleKaffe = function () {
   if (timeout) {
     return;
   }
+
+  run_cmd('say', ["Lag kaffe din tomsing!"], function () {
+    
+  });
+
   timeout = true;
   setTimeout(function () {
     timeout = false;
