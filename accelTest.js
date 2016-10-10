@@ -42,7 +42,7 @@ sensor.then(function(tag) {
 var kaffeSkruddPaa = false;
 
 function kaffe() {
-  run_cmd('wallplug_power.sh',[], function () {
+  run_cmd('./wallplug_power.sh',[""], function () {
     //
   });
   setTimeout(function () {
