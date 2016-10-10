@@ -28,7 +28,7 @@ sensor.then(function(tag) {
   tag.on("accelerometerChange", function(x,y,z) {
     log("x: " + x + "    y: " + y + "    z: " + z);
 
-    if (x < xTresh && z > zTresh) {
+    if (x < xTresh) {
       // vi heller siste rest av kaffe!
       log("Naa heller vi kaffe!!");
 
