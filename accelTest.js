@@ -56,7 +56,7 @@ var handleKaffe = function () {
   });
   setTimeout(function () {
     kaffeSkruddPaa();
-  }, 450000);
+  }, 15000);
   setTimeout(function () {
       if (!kaffeSkruddPaa) {
         run_cmd ('python', ["tweeter.py", "#kaffesynder tom for kaffe og lagde ikke ny #fuii #importCreativeName", "image.jpg"], function () {log("oida"); });
@@ -64,9 +64,9 @@ var handleKaffe = function () {
         run_cmd ('python', ["tweeter.py", "#kaffepride tom for kaffe og lagde ny! #fuii #importCreativeName", "image.jpg"], function () {log("oida");});
           setTimeout(function () {
             run_cmd ('python', ["tweeter.py", "Nå er kaffen klar! #fuii #importCreativeName", "kaffe.jpg"], function () {log("oida");});
-          }, 500000);
+          }, 10000);
     }
-  }, 300000);
+  }, 17000);
 };
 
 function kaffeSkruddPaa() {
